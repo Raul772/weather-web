@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Quicksand:wght@500&display=swap');
+
+
+:root{
+
+    --text-white: #eaf2ef;
+    --text-black: #323031;
+    --text-danger: #FF4242;
+    --text-alert: #fac516;
+    --text-info: #7778d1;
+
+    --font-default: 'Quicksand', sans-serif;
+    --font-highlight: 'Dosis', sans-serif;
+
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: var(--text-white);
+}
+
+/* Background and coloring */
+main{
+    height: 100vh;
+    background-image: linear-gradient(to top left, #131313, #27368a);
+    padding: 100px;
+}
+
+
+main > section:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 700px;
+    padding: 25px;
+    border-radius: 25px;
+    background: #ffffff25;
+    backdrop-filter: blur(5px);
+    font-family: var(--font-default);
+}
+#location > p{
+    font-size: 1.2em;
+}
+.weather-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weather-header > .weather-icon > p{
+    font-size: 10em;
+}
+.weather-header > .weather-text > #current-temperature{
+    padding: 0px 25px;
+    font-size: clamp(52px, 70%, 100px);
+}
+.weather-header > .weather-text > #weather-info-WMO{
+    padding: 25px;
+    font-size: clamp(32px, 70%, 100px);
+}
+
+/* Weather Info */
+.weather-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-default);
+    font-size: 18px;
+}
+
