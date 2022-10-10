@@ -1,5 +1,20 @@
 @charset "UTF-8";
 
+@media screen and (max-width: 576px) {
+
+    main{
+        padding: 0px;
+    }
+    main > section:nth-child(1){
+        min-width: 0px;
+        max-width: none;
+        height: 100%;
+        border-radius: 0px;
+    }
+    #current-temperature{
+        font-size: 32px !important; 
+    }
+}
 @media screen and (max-width: 768px) {
     
     main > section:nth-child(1){
@@ -11,15 +26,3 @@
     }
 }
 
-@media screen and (max-width: 576px) {
-
-    main{
-        padding: 0px;
-    }
-    main > section:nth-child(1){
-        max-width: none;
-        height: 100%;
-        border-radius: 0px;
-    }
-
-}

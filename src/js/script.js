@@ -45,37 +45,58 @@ async function weather(coordinates) {
 const showWeather = (currentWeather) => {
     console.log(currentWeather);
     switch (currentWeather.weather[0].icon) {
-        case "01d" || "01n":
-            weather.weather[0].icon == "01d" ? 
-            weatherIcon.innerHTML = '<i class="fa-solid fa-sun"></i>' : 
+        case "01d":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            break;
+        case "01n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
             break;
-        case "02d" || "02n":
-            weather.weather[0].icon == "02d" ? 
-            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>' : 
+        case "02d":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>';
+            break;
+        case "02n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon"></i>';
             break;
-        case "03d" || "03n":
+        case "03d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
             break;
-        case "04d" || "04n":
+        case "03n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
             break;
-        case "09d" || "09n":
+        case "04d":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+            break;
+        case "04n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+            break;
+        case "09d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
             break;
-        case "10d" || "10n":
-            weather.weather[0].icon == "10d" ? 
-            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>' : 
+        case "09n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
+            break;
+        case "10d":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>'; 
+            break;
+        case "10n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon-rain"></i>';
             break;
-        case "11d" || "11n":
+        case "11d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
             break;
-        case "13d" || "13n":
+        case "11n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
+            break;
+        case "13d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
             break;
-        case "50d" || "50n":
+        case "13n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
+            break;
+        case "50d":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-smog"></i>';
+            break;
+        case "50n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-smog"></i>';
             break;
         default:
@@ -120,7 +141,4 @@ const changebackground = () => {
 
 getLocation();
 changebackground();
-
-setInterval(getLocation,3600000);
-setInterval(changebackground,3600000);
 
