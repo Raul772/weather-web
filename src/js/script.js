@@ -117,26 +117,17 @@ const changebackground = () => {
     let date = new Date();
     let hours = date.getHours();
 
-    console.log(hours);
-
-    switch (true) {
-        case (19 < hours) || (hours < 6):
-            mainbackground.style.backgroundImage = "linear-gradient(to top left, #3d0303, #000275)";
-            break;
-        case  (6 < hours) && (hours < 12):
-            mainbackground.style.backgroundImage = "linear-gradient(to top left, #a85a5a, #ebda7f)";
-            break;
-        case  (12 < hours) && (hours < 16):
-            mainbackground.style.backgroundImage = "linear-gradient(to top left, #777fa7, #ffc374)";
-            break;
-        case  (16 < hours) && (hours < 19):
-            mainbackground.style.backgroundImage = "linear-gradient(to top left, #2b397e, #996f6b)";
-            break;
-        default:
-            mainbackground.style.backgroundColor = "#000";
-            break;
-    }
-        
+    if ((19 <= hours) || (hours < 6)) {
+        mainbackground.style.backgroundImage = "linear-gradient(to top left, #3d0303, #000275)";
+    }else
+    if ((6 <= hours) && (hours < 12)) {
+        mainbackground.style.backgroundImage = "linear-gradient(to top left, #a85a5a, #ebda7f)";
+    }else
+    if ((12 <= hours) && (hours < 16)) {
+        mainbackground.style.backgroundImage = "linear-gradient(to top left, #777fa7, #ffc374)";
+    }else{
+        mainbackground.style.backgroundImage = "linear-gradient(to top left, #2b397e, #996f6b)";
+    }        
 }
 
 getLocation();
