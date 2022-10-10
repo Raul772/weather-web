@@ -14,32 +14,34 @@
 
 </head>
 <body>
-    <main class="main-background">
+    <main main-background>
         <section>
-            <div id="location">
-                <p></p>
+            <div location id="location">
+                <p>Local</p>
             </div>
             <div class="weather-header">
-                <div class="weather-icon">
+                <div weather-icon class="weather-icon">
                     <p><i class="fa-solid fa-cloud"></i></p>
                 </div>
                 
                 <div class="weather-text">
-                    <p id="current-temperature">19°C</p>
-                    <p id="weather-info-WMO">Nublado</p>
+                    <p temperature-data id="current-temperature">99°C</p>
+                    <p wmo-condition-data id="weather-info-WMO">Condition</p>
                 </div>
-
             </div>
 
+            <p wmo-description-data id="WMO-description">WMO Description</p>
+
             <div class="weather-info">
-                <p id="feels-like">Sensação: 19 °C</p>
-                <p id="precipitation">Precipitação: 19 mm</p>
-                <p id="wind-speed">Vento: 19 km</p>
-                <p id="cloud-cover">Cobertura: 19 %</p>
+                <p feels-like-data id="feels-like">Sensação: 99 °C</p>
+                <p humidity-data id="humidity">Umidade: 99 %</p>
+                <p wind-speed-data id="wind-speed">Vento: 99 km</p>
+                <p cloud-cover-data id="cloud-cover">Cobertura: 99 %</p>
             </div>
         
         </section>
     </main>
+
     <script src="https://kit.fontawesome.com/6886debc6f.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 768px) {
+    
+    main > section:nth-child(1){
+        text-align: center;
+    }
+    .weather-header{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    main{
+        padding: 0px;
+    }
+    main > section:nth-child(1){
+        max-width: none;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+}

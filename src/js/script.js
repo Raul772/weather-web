@@ -1,9 +1,17 @@
-const local = document.querySelector("#location p");
-const weatherIcon = document.querySelector(".weather-icon > p > i");
-const temperatureText = document.getElementById("#current-temperature");
-const weatherWMO = document.getElementById("#weather-info-WMO");
+const local = document.querySelector("[location] p");
+const weatherIcon = document.querySelector("[weather-icon] p");
+const temperatureText = document.querySelector("[temperature-data]");
+const wmoDescription = document.querySelector("[wmo-description-data]");
+const feelsLike = document.querySelector("[feels-like-data]");
+const weatherWMO = document.querySelector("[wmo-condition-data]");
+const humidity = document.querySelector("[humidity-data]");
+const windSpeed = document.querySelector("[wind-speed-data]");
+const cloudCover = document.querySelector("[cloud-cover-data]");
 
-let coordinates;
+const mainbackground = document.querySelector('[main-background]');
+
+console.log(mainbackground.style);
+
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -14,7 +22,6 @@ function getLocation() {
 }
 
 async function reverseGeocode (position){
-    
     const localization = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&apiKey=073bcfa58879488cb759d728980d7b1a`);
 
     const localizationData = await localization.json();
@@ -28,19 +35,92 @@ function showPosition(position) {
 }
 
 async function weather(coordinates) {
-        const weather = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coordinates.coords.latitude}&longitude=${coordinates.coords.longitude}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation,rain,showers,snowfall,snow_depth,freezinglevel_height,weathercode&current_weather=true`);
+    const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.coords.latitude}&lon=${coordinates.coords.longitude}&appid=93c86fbe3c483f3a4f721b21fdefdfc4&lang=pt_br&units=metric`);
 
-        const weatherData = await weather.json();
-        showWeather(weatherData);
+    const weatherData = await weather.json();
+
+    showWeather(weatherData);
 }
 
-const showWeather = (weather) => {
-    console.log(weather);
-    temperatureText.innerText = `Sensação: ${weather.current_weather.temperature} °C`
+const showWeather = (currentWeather) => {
+    console.log(currentWeather);
+    switch (currentWeather.weather[0].icon) {
+        case "01d" || "01n":
+            weather.weather[0].icon == "01d" ? 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-sun"></i>' : 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            break;
+        case "02d" || "02n":
+            weather.weather[0].icon == "02d" ? 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>' : 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon"></i>';
+            break;
+        case "03d" || "03n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+            break;
+        case "04d" || "04n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+            break;
+        case "09d" || "09n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
+            break;
+        case "10d" || "10n":
+            weather.weather[0].icon == "10d" ? 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>' : 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon-rain"></i>';
+            break;
+        case "11d" || "11n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
+            break;
+        case "13d" || "13n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
+            break;
+        case "50d" || "50n":
+            weatherIcon.innerHTML = '<i class="fa-solid fa-smog"></i>';
+            break;
+        default:
+            weatherIcon.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            break;
+    }
+    temperatureText.innerHTML = `${currentWeather.main.temp} °C`;
+    weatherWMO.innerText = `${currentWeather.weather[0].main}`;
+    wmoDescription.innerText = `${currentWeather.weather[0].description}`;
+    feelsLike.innerText = `Sensação: ${currentWeather.main.feels_like} °C`;
+    humidity.innerText = `Umidade: ${currentWeather.main.humidity} %`;
+    windSpeed.innerText = `Vento: ${currentWeather.wind.speed} m/s`;
+    cloudCover.innerText = `Cobertura: ${currentWeather.clouds.all} %`;
+}
+
+const changebackground = () => {
+
+    let date = new Date();
+    let hours = date.getHours();
+
+    console.log(hours);
+
+    switch (true) {
+        case (19 < hours) || (hours < 6):
+            mainbackground.style.backgroundImage = "linear-gradient(to top left, #3d0303, #000275)";
+            break;
+        case  (6 < hours) && (hours < 12):
+            mainbackground.style.backgroundImage = "linear-gradient(to top left, #a85a5a, #ebda7f)";
+            break;
+        case  (12 < hours) && (hours < 16):
+            mainbackground.style.backgroundImage = "linear-gradient(to top left, #777fa7, #ffc374)";
+            break;
+        case  (16 < hours) && (hours < 19):
+            mainbackground.style.backgroundImage = "linear-gradient(to top left, #2b397e, #996f6b)";
+            break;
+        default:
+            mainbackground.style.backgroundColor = "#000";
+            break;
+    }
+        
 }
 
 getLocation();
+changebackground();
 
-
-
+setInterval(getLocation,3600000);
+setInterval(changebackground,3600000);
 

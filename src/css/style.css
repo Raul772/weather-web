@@ -26,19 +26,20 @@
 /* Background and coloring */
 main{
     height: 100vh;
-    background-image: linear-gradient(to top left, #131313, #27368a);
+    background-image: linear-gradient(to top left, #777fa7, #ffc374);
     padding: 100px;
 }
-
-
 main > section:nth-child(1){
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
     max-width: 700px;
     padding: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 25px;
     background: #ffffff25;
     backdrop-filter: blur(5px);
@@ -64,11 +65,17 @@ main > section:nth-child(1){
     font-size: clamp(32px, 70%, 100px);
 }
 
+#WMO-description{
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
 /* Weather Info */
 .weather-info{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px 30px;
+    padding: 25px 0px;
     justify-content: center;
     align-items: center;
     font-family: var(--font-default);
