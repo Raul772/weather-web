@@ -11,8 +11,6 @@ const cloudCover = document.querySelector("[cloud-cover-data]");
 const mainbackground = document.querySelector('[main-background]');
 const secondaryBackground = document.querySelector('[background-fx]')
 
-console.log(mainbackground.style);
-
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -44,7 +42,6 @@ async function weather(coordinates) {
 }
 
 const showWeather = (currentWeather) => {
-    console.log(currentWeather);
     switch (currentWeather.weather[0].icon) {
         case "01d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-sun"></i>';
@@ -54,7 +51,6 @@ const showWeather = (currentWeather) => {
             break;
         case "02d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>';
-            secondaryBackground.style.backdropFilter = "saturate(50%)";
             break;
         case "02n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon"></i>';
