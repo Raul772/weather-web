@@ -65,33 +65,43 @@ const showWeather = (currentWeather) => {
             break;
         case "04d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+            mainbackground.style.backdropFilter = "saturate(75%)";
             break;
         case "04n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+            mainbackground.style.backdropFilter = "saturate(75%)";
             break;
         case "09d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
+            mainbackground.style.backdropFilter = "saturate(75%)";
             break;
         case "09n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
+            mainbackground.style.backdropFilter = "saturate(75%)";
             break;
         case "10d":
-            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>'; 
+            weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>';
+            mainbackground.style.backdropFilter = "saturate(50%)"; 
             break;
         case "10n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon-rain"></i>';
+            mainbackground.style.backdropFilter = "saturate(50%)";
             break;
         case "11d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
+            mainbackground.style.backdropFilter = "saturate(25%)"; 
             break;
         case "11n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
+            mainbackground.style.backdropFilter = "saturate(25%)";
             break;
         case "13d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
+            mainbackground.style.backdropFilter = "saturate(25%)";
             break;
         case "13n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
+            mainbackground.style.backdropFilter = "saturate(25%)";
             break;
         case "50d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-smog"></i>';

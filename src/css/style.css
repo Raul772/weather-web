@@ -25,6 +25,7 @@
 
 /* Background and coloring */
 main{
+    position: relative;
     height: 100vh;
     background-image: linear-gradient(to top left, #777fa7, #ffc374);
     padding: 100px;
