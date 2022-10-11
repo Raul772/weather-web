@@ -9,6 +9,7 @@ const windSpeed = document.querySelector("[wind-speed-data]");
 const cloudCover = document.querySelector("[cloud-cover-data]");
 
 const mainbackground = document.querySelector('[main-background]');
+const secondaryBackground = document.querySelector('[background-fx]')
 
 console.log(mainbackground.style);
 
@@ -53,6 +54,7 @@ const showWeather = (currentWeather) => {
             break;
         case "02d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>';
+            secondaryBackground.style.backdropFilter = "saturate(50%)";
             break;
         case "02n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon"></i>';
@@ -65,43 +67,43 @@ const showWeather = (currentWeather) => {
             break;
         case "04d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
-            mainbackground.style.backdropFilter = "saturate(75%)";
+            secondaryBackground.style.backdropFilter = "saturate(70%)";
             break;
         case "04n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
-            mainbackground.style.backdropFilter = "saturate(75%)";
+            secondaryBackground.style.backdropFilter = "saturate(70%)";
             break;
         case "09d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
-            mainbackground.style.backdropFilter = "saturate(75%)";
+            secondaryBackground.style.backdropFilter = "saturate(70%)";
             break;
         case "09n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
-            mainbackground.style.backdropFilter = "saturate(75%)";
+            secondaryBackground.style.backdropFilter = "saturate(70%)";
             break;
         case "10d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>';
-            mainbackground.style.backdropFilter = "saturate(50%)"; 
+            secondaryBackground.style.backdropFilter = "saturate(50%)"; 
             break;
         case "10n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-moon-rain"></i>';
-            mainbackground.style.backdropFilter = "saturate(50%)";
+            secondaryBackground.style.backdropFilter = "saturate(50%)";
             break;
         case "11d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
-            mainbackground.style.backdropFilter = "saturate(25%)"; 
+            secondaryBackground.style.backdropFilter = "saturate(35%)"; 
             break;
         case "11n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
-            mainbackground.style.backdropFilter = "saturate(25%)";
+            secondaryBackground.style.backdropFilter = "saturate(35%)";
             break;
         case "13d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
-            mainbackground.style.backdropFilter = "saturate(25%)";
+            secondaryBackground.style.backdropFilter = "saturate(35%)";
             break;
         case "13n":
             weatherIcon.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
-            mainbackground.style.backdropFilter = "saturate(25%)";
+            secondaryBackground.style.backdropFilter = "saturate(35%)";
             break;
         case "50d":
             weatherIcon.innerHTML = '<i class="fa-solid fa-smog"></i>';

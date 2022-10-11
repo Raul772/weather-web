@@ -43,6 +43,14 @@ main > section:nth-child(1){
     backdrop-filter: blur(5px);
     font-family: var(--font-default);
 }
+main > section:nth-child(2){
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: saturate(100%);
+}
 #location > p{
     font-size: 1.2em;
 }
